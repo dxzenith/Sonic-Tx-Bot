@@ -69,6 +69,10 @@ const to = web3.Keypair.generate();
         [from],
       );
     console.log(chalk.blue('Tx hash :'), signature);
+    } else {
+    clearinterval(interval);
+    }
+    }, 30000)
     console.log("");
     const randomDelay = Math.floor(Math.random() * 3) + 1;
     await new Promise(resolve => setTimeout(resolve, randomDelay * 1000));
