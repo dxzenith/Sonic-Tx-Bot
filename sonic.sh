@@ -62,17 +62,20 @@ const to = web3.Keypair.generate();
     
       
       const txCount = 100;
-      for (let i = 0; i < txCount; i++) {
+      for (let i = 0; 
+      const interval = setInterval(asyn () => {
+       if (i < txcount) {
       const signature = await web3.sendAndConfirmTransaction(
         connection,
         transaction,
         [from],
       );
+      i++;
     console.log(chalk.blue('Tx hash :'), signature);
     } else {
     clearinterval(interval);
     }
-    }, 30000)
+    }, 60000)
     console.log("");
     const randomDelay = Math.floor(Math.random() * 3) + 1;
     await new Promise(resolve => setTimeout(resolve, randomDelay * 1000));
